@@ -1,8 +1,8 @@
 AdenylPred
 ===========
-Welcome to AdenylPred! AdenylPred is a substrate and function prediction tool for class I adenylate-forming enzymes.
+Welcome to the AdenylPred development page. Please note the tool is currently in progress. For the most stable (production) version of AdenylPred, please go to the [AdenylPred](https://github.com/serina-robinson/adenylpred/) page. 
 
-Class I adenylate-forming enzymes have diverse functions including the acyl-CoA synthetases, NRPS A-domains, firefly luciferases, fatty acyl-AMP ligases, and β-lactone synthetases. These enzymes play critical roles in primary and secondary metabolism in all branches of the tree of life.
+AdenylPred is a substrate and function prediction tool for class I adenylate-forming enzymes. Class I adenylate-forming enzymes have diverse functions including the acyl-CoA synthetases, NRPS A-domains, firefly luciferases, fatty acyl-AMP ligases, and β-lactone synthetases. These enzymes play critical roles in primary and secondary metabolism in all branches of the tree of life.
 
 The number of adenylate-forming enzymes in sequence databases (>700,000) far outnumber our capacity to experimentally characterize them. Since these enzymes activate a variety of fatty, aryl, and amino acid precursors in biosynthetic pathways, prediction of substrate can help inform the chemical structure of downstream metabolites. To meet this challenge, AdenylPred was developed using a random forest machine learning approach to predict substrate specificity from amino acid sequence.
 
@@ -16,20 +16,16 @@ Prerequisite software and packages:
 * python (version 3.7.3 tested, any version >= 3.5.0 should work)
 * python-virtualenv (not needed, but highly recommended)
 * [muscle](http://www.drive5.com/muscle/downloads.htm) (version 3.8.1551 tested) or if you have conda installed you can use `conda install -c bioconda muscle `
-* [hmmer3](http://hmmer.org/) (version-3.1b2 tested) or if you have conda installed you can use `conda install -c biocore hmmer`
+* [hmmer2](http://hmmer.org/) (HMMER 2.3.2 tested) or if you have conda installed you can use `conda install -c bioconda hmmer2`
 
-Create a python virtualenv for installing AdenylPred dependencies
+Create a python virtual environment for installing AdenylPred dependencies. If conda is not installed, see [venv documentation](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) for more information. If conda is install you can use the following commands: 
 
 ```
-python3 -m venv /path/to/new/virtual/env
-``` 
-OR if you are using conda:
+conda create --name adenylpred_env
 ```
-conda create --name /path/to/new/virtual/env
+Then activate your environment using:
 ```
-Then activate your environment using
-```
-source activate /path/to/new/virtual/env
+source activate adenylpred_env
 ```
 
 Next navigate to a location on your local drive where you would like AdenylPred installed. To obtain a copy of the AdenylPred source code you will need to clone the AdenylPred git repository:
@@ -49,22 +45,22 @@ pip install -r requirements.txt
 You should then be able to run adenylpred as follows:
 
 ```
-usage: python3 adenylpred.py [-h] -i INPUT [-o OUTPUT] [-x XTRACT_A_DOMAINS] [-n NUCLEOTIDE_SEQUENCE]
+usage: adenylpred.py [-h] -i INPUT [-o OUTPUT] [-s] [-n] [-g]
 
-optional arguments:
+Prediction tool for adenylate-forming enzyme substrate specificity
+
+arguments:
   -h, --help            show this help message and exit
   -i INPUT, --input INPUT
                         Input file (FASTA or GenBank format).
   -o OUTPUT, --output OUTPUT
                         Output file directory. Default is stdout
-  -x XTRACT_A_DOMAINS, --xtract_A_domains XTRACT_A_DOMAINS
-                        [1 = extract AMP-binding hits using AMP-binding.hmm |
-                        0 = AMP-binding domains already extracted]
-  -n NUCLEOTIDE_SEQUENCE, --nucleotide_sequence NUCLEOTIDE_SEQUENCE
-                        [1 = Nucleotide sequence | 0 = Amino acid sequence]
+  -s, --silent          Silences all progress updates to stdout
+  -n, --nucleotide      Nucleotide sequence
+  -g, --genbank_input   Input is in GenBank format
 ```
 
-Common issues include not having hmmer3 or muscle installed, so please check the dependencies before using AdenylPred.
+Common issues include not having hmmer2 or muscle installed, so please check the dependencies before using AdenylPred.
 
 Example Usages
 --------------
