@@ -70,14 +70,14 @@ Predict substrates of A domains from a complete biosynthetic gene cluster FASTA 
 python3 adenylpred.py -i examples/lipstatin.fasta -o lipstatin_predictions.txt
 ```
 
-Predict substrates for example NRPS sequences where the AMP-binding domains have already been extracted
-```
-python3 adenylpred.py -i examples/test5.fasta -x 0
-```
-
 Predict substrates for AMP-binding enzymes in a nucleotide FASTA file
 ```
-python3 adenylpred.py -i examples/lipstatin_nucleotide.fasta -x 1 -n 1
+python3 adenylpred.py -i examples/lipstatin_nucleotide.fasta -n
+```
+
+Predict substrates from a GenBank file
+```
+python3 adenylpred.py -i examples/daptomycin.gbk -g
 ```
 
 Acknowledgements
