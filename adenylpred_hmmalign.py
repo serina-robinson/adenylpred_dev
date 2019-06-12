@@ -51,7 +51,7 @@ KNOWN_CODES = "%s/data/knowncodes.fasta" % parent_folder
 ILLEGAL_CHARS = "!@#$%^&*(){}:\"<>?/.,';][`~1234567890*-+-=_\\|"
 ADOMAINS_FILENAME = "%s/data/A_domains_muscle.fasta" % parent_folder
 START_POSITION = 66
-HMM_FILE = "%s/data/AMP-binding.hmm" % parent_folder
+HMM_FILE = "%s/data/a_dom.hmm" % parent_folder
 
 
 def define_arguments() -> argparse.ArgumentParser:
