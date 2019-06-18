@@ -124,15 +124,14 @@ def make_prediction(fasta_dir, silent):
             fasta_dir: directory of input fasta file 
     """
 
-    # filename = "%s/data/models/best_rf_monomer_amplicon_model.sav" % parent_folder
-    filename = "%s/data/models/best_rf_groups_amplicon_model.sav" % parent_folder
+    filename = "%s/data/models/finalized_rf_model.sav" % parent_folder
     rf_mod = pickle.load(open(filename, 'rb'))
 
-    # properties_4 = parse_4_properties(PROPERTIES_4)
-    # feature_list = get_feature_matrix(fasta_dir, properties_4)
+    properties_4 = parse_4_properties(PROPERTIES_4)
+    feature_list = get_feature_matrix(fasta_dir, properties_4)
 
-    properties_15 = parse_15_properties(PROPERTIES_15)
-    feature_list = get_feature_matrix(fasta_dir, properties_15)
+    #properties_15 = parse_15_properties(PROPERTIES_15)
+    #feature_list = get_feature_matrix(fasta_dir, properties_15)
 
     seqname = feature_list[0]
     features = feature_list[1]
@@ -203,7 +202,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Create antiSMASH-like domain objects from AMP-binding hits
-    '''domain_list = []
+    domain_list = []
     
     for i, domain in enumerate(create_domain_fa):
         domain_list.append(AntismashDomain(FeatureLocation(1, 1, 1), tool="test")) # arbitrary feature location for testing
@@ -220,7 +219,7 @@ if __name__ == "__main__":
         nms.append(domain.domain_id)
         sqs.append(res[i])
 
-    fasta.write_fasta(nms, sqs, new_path)'''
+    fasta.write_fasta(nms, sqs, new_path)
 
     # Make predictions based on 34 active site residues
     new_path = fasta_dir
