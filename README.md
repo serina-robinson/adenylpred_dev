@@ -31,7 +31,7 @@ source activate adenylpred_env
 Next navigate to a location on your local drive where you would like AdenylPred installed. To obtain a copy of the AdenylPred source code you will need to clone the AdenylPred git repository:
 
 ```
-git clone https://github.com/serina-robinson/adenylpred.git
+git clone https://github.com/serina-robinson/adenylpred_dev.git
 cd adenylpred
 ```
 
