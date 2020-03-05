@@ -39,6 +39,8 @@ Or, from github.com, click the "clone or download" button and "Download ZIP"
 
 All python dependencies are specified in the `requirements.txt` file. To load all the requirements simply run:
 ```
+conda install -c bioconda hmmer2
+conda install -c bioconda muscle
 pip3 install -r requirements.txt
 ```
 
